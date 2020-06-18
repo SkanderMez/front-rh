@@ -21,7 +21,7 @@ export class AllProfilesComponent implements OnInit {
   url2 = 'assets/js/pages/forms/form-data.js';
   loading;
   users_ids = [];
-  labeled_users: LabeledUserModel[];
+  labeled_users: LabeledUserModel;
   users: ResumeModel[];
   actualOffset = 0;
   limit = 5;
@@ -77,10 +77,9 @@ export class AllProfilesComponent implements OnInit {
   getAllUsersPaginateWithoutFilters(offset, limit) {
     this.loading = true;
     this.users = [];
-    this.labeled_users = [];
     this.users_ids = [];
     this.crudService.getAllPaginate(BASE_API + USERS , offset , limit ).subscribe(
-      (data: any) => {
+      (data: LabeledUserModel) => {
         console.log('labled db result');
         console.log(data)
         this.labeled_users = data;
@@ -150,7 +149,6 @@ export class AllProfilesComponent implements OnInit {
     this.loading = true;
     this.filteringQuery = true;
     this.users = [];
-    this.labeled_users = [];
     this.users_ids = [];
     const min_experience = this.experience.nativeElement.firstElementChild.children[0].firstElementChild.children[1].firstElementChild.innerHTML;
     const max_experiencee = this.experience.nativeElement.firstElementChild.children[2].firstElementChild.children[1].firstElementChild.innerHTML;
