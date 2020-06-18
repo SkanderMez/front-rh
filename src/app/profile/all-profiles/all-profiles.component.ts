@@ -4,6 +4,7 @@ import {BASE_API, USERS} from '../../_globals/vars';
 import {ResumeModel} from '../../_models/full-resume-models/resume.model';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {LabeledUserModel} from '../../_models/full-resume-models/labeled.user.model';
 declare var $: any;
 @Component({
   selector: 'app-all-profiles',
@@ -20,7 +21,7 @@ export class AllProfilesComponent implements OnInit {
   url2 = 'assets/js/pages/forms/form-data.js';
   loading;
   users_ids = [];
-  labeled_users = [];
+  labeled_users: LabeledUserModel[];
   users: ResumeModel[];
   actualOffset = 0;
   limit = 5;
