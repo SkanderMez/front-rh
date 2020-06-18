@@ -1,0 +1,297 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title">{{resume.personal_info.name }}'s Profile</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a href="../../index.html">
+                <i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="breadcrumb-item bcrumb-2">
+              <a href="#" onClick="return false;">Profiles</a>
+            </li>
+            <li class="breadcrumb-item active">{{resume.personal_info.name}}'s Profile</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Your content goes here  -->
+    <div class="row clearfix animated fadeInLeft">
+      <div class="col-lg-4 col-md-12">
+        <div class="card ">
+          <div class="m-b-20">
+            <div class="contact-grid">
+              <div class="profile-header bg-dark">
+                <div
+                  class="user-name">{{resume.personal_info.name ? resume.personal_info.name : "Non available"}}</div>
+                <div
+                  class="name-center">{{resume.personal_info.headline ? resume.personal_info.headline : "Non available"}}</div>
+              </div>
+                <img alt="" class="user-img"                                        src="../../assets/images/cv.png"
+                >
+              <p>
+                {{resume.personal_info.summary ? resume.personal_info.summary : "Non available"}}
+              </p>
+              <div>
+                                    <span class="phone">
+                                        <i
+                                          class="material-icons">phone</i>{{resume.personal_info.phone ? resume.personal_info.phone : "Non available"}}</span>
+              </div>
+              <span class="label bg-cyan m-b-10">Backend</span> <span class="label label-warning m-r-10">J2EE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-12">
+        <div class="card">
+          <div class="profile-tab-box">
+            <div class="p-l-20">
+              <h3 class="font-bold col-teal" style="text-align: center">Resume</h3>
+            </div>
+          </div>
+        </div>
+        <div class="tab-content">
+          <div aria-expanded="true" class="tab-pane active" id="project" role="tabpanel">
+            <div class="row clearfix">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card project_widget">
+                  <div class="header">
+                    <h2 class="font-bold col-teal">Personal Info</h2>
+                  </div>
+                  <div class="body">
+                    <div class="row">
+                      <div class="col-md-3 col-6 b-r">
+                        <span class="font-bold col-blue-grey ">Name </span> <br>
+                        <p class="text-muted">{{resume.personal_info.name}}</p>
+                      </div>
+                      <div class="col-md-3 col-6 b-r">
+                        <span class="font-bold col-blue-grey ">  Phone </span> <br>
+                        <p
+                          class="text-muted">{{resume.personal_info.phone ? resume.personal_info.phone : "Non available"}}</p>
+                      </div>
+                      <div class="col-md-3 col-6 b-r">
+                        <span class="font-bold col-blue-grey ">Email</span> <br>
+                        <p
+                          class="text-muted">{{resume.personal_info.email ? resume.personal_info.email : "Non available"}}</p>
+                      </div>
+                      <div class="col-md-3 col-6">
+                        <span class="font-bold col-blue-grey ">Location </span> <br>
+                        <p
+                          class="text-muted">{{resume.personal_info.location ? resume.personal_info.location : "Non available"}}</p>
+                      </div>
+                    </div>
+                    <span class="font-bold col-blue-grey "> LinkedIn link: </span><a href="{{resume.url}}"
+                                                                                       rel="noopener noreferrer"
+                                                                                       target="_blank">{{resume.url}}</a>
+
+                    <br>
+                    <br>
+
+                    <span
+                      class="font-bold col-blue-grey ">   Actual Company:  </span>{{resume.personal_info.company?resume.personal_info.company:'Non available'}}
+                    <br>
+                    <br>
+
+
+                    <span class="font-bold col-blue-grey ">  Institution: </span>{{resume.personal_info.school?resume.personal_info.school:'Non available'}}
+                    <br>
+                    <br>
+
+                    <span class="font-bold col-blue-grey ">  Location :  </span>{{resume.personal_info.location?resume.personal_info.location:'Non available'}}
+
+
+                    <br>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card project_widget">
+                  <div class="header">
+                    <h2 class="font-bold col-teal">Skills ( + endorsments)</h2>
+                  </div>
+                  <div class="body">
+                    <div class="table-responsive">
+                      <table class="table table-hover js-basic-example contact_list">
+                        <thead>
+                        <tr>
+                          <th *ngFor="let skill of resume.skills">
+                            {{skill.name?skill.name:'Non available'}}
+                          </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td *ngFor="let skill of resume.skills">
+                            {{skill.endorsements ? skill.endorsements : "Non available"}}
+                          </td>
+                        </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card project_widget">
+                  <div class="header">
+                    <h2 class="font-bold col-teal">Education</h2>
+                  </div>
+                  <div class="body">
+                    <ul>
+                      <li *ngFor="let education of resume.experiences.education">
+                        <span class="font-bold col-blue-grey "> {{education.date_range?education.date_range:'Non available'}}</span>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;<span class="font-bold">Université:</span> {{education.name?education.name:'Non available'}}
+                        <br>
+                        &nbsp;&nbsp;&nbsp;<span class="font-bofld">Diplôme:</span> {{education.degree?education.degree:'Non available'}}
+                        <br>
+                        &nbsp;&nbsp;&nbsp;<span class="font-bold">Spécialité:</span> {{education.field_of_study?education.field_of_study:'Non available'}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card project_widget">
+                  <div class="header">
+                    <h2 class="font-bold col-teal">Experience</h2>
+                  </div>
+                  <div class="body">
+                    <ul>
+                      <li *ngFor="let job of resume.experiences.jobs; let i=index">
+                        <span class="font-bold col-blue-grey "> {{job.date_range?job.date_range:'Non available'}}</span>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;<span class="font-bold">Poste:</span> {{job.title?job.title:'Non available'}}
+                        <br>
+                        &nbsp;&nbsp;&nbsp;<span class="font-bold">Entreprise:</span> {{job.company?job.company:'Non available'}}
+                        <br>
+                        &nbsp;&nbsp;&nbsp;<span class="font-bold">Pays/Ville:</span> {{job.location?job.location:'Non available'}}
+                        <br>
+                        &nbsp;&nbsp;&nbsp;<span class="font-bold comment more">Description:</span>
+                        <!--                        <div class="comment more">{{job.description}}</div>-->
+                        <div [class.show]="show[i]" class="container">
+                          {{job.description?job.description:'Non available'}}
+                        </div>
+                        &nbsp;&nbsp;&nbsp;
+                        <span (click)="show[i] = !show[i]" class="label m-b-10"
+                              style="font-size: 10px; background: #343d45;cursor: pointer">{{ show[i] ? 'Afficher moins' : 'Afficher plus' }}</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div aria-expanded="false" class="tab-pane" id="timeline" role="tabpanel">
+          </div>
+          <div aria-expanded="false" class="tab-pane" id="usersettings" role="tabpanel">
+            <div class="card">
+              <div class="header">
+                <h2>
+                  <strong>Security</strong> Settings</h2>
+              </div>
+              <div class="body">
+                <div class="form-group">
+                  <input class="form-control" placeholder="Username" type="text">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" placeholder="Current Password" type="password">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" placeholder="New Password" type="password">
+                </div>
+                <button class="btn btn-info btn-round">Save Changes</button>
+              </div>
+            </div>
+            <div class="card">
+              <div class="header">
+                <h2>
+                  <strong>Account</strong> Settings</h2>
+              </div>
+              <div class="body">
+                <div class="row clearfix">
+                  <div class="col-lg-6 col-md-12">
+                    <div class="form-group">
+                      <input class="form-control" placeholder="First Name" type="text">
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-12">
+                    <div class="form-group">
+                      <input class="form-control" placeholder="Last Name" type="text">
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-12">
+                    <div class="form-group">
+                      <input class="form-control" placeholder="City" type="text">
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-12">
+                    <div class="form-group">
+                      <input class="form-control" placeholder="E-mail" type="text">
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-12">
+                    <div class="form-group">
+                      <input class="form-control" placeholder="Country" type="text">
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <textarea class="form-control no-resize" placeholder="Address Line 1" rows="4"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class="form-check m-l-10">
+                        <label class="form-check-label">
+                          <input class="form-check-input" id="checkbox" name="checkbox"
+                                 type="checkbox"> Profile Visibility For Everyone
+                          <span class="form-check-sign">
+                                                            <span class="check"></span>
+                                                        </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="form-check m-l-10">
+                        <label class="form-check-label">
+                          <input class="form-check-input" id="checkbox1" name="checkbox"
+                                 type="checkbox"> New task notifications
+                          <span class="form-check-sign">
+                                                            <span class="check"></span>
+                                                        </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="form-check m-l-10">
+                        <label class="form-check-label">
+                          <input class="form-check-input" id="checkbox2" name="checkbox"
+                                 type="checkbox"> New friend request notifications
+                          <span class="form-check-sign">
+                                                            <span class="check"></span>
+                                                        </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <button class="btn btn-primary btn-round">Save Changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+

@@ -92,18 +92,21 @@ $(function () {
         prettify_enabled: false
     });
 
-    var slider = document.getElementById('test-slider');
-    noUiSlider.create(slider, {
-        start: [20, 80],
+    var slider = document.getElementsByClassName('test-slider');
+    for (var s of slider){
+      noUiSlider.create(s, {
+        start: [1, 5],
         connect: true,
         step: 1,
         orientation: 'horizontal', // 'horizontal' or 'vertical'
         range: {
-            'min': 0,
-            'max': 100
+          'min': 0,
+          'max': 10
         },
         format: wNumb({
-            decimals: 0
+          decimals: 0
         })
-    });
+      });
+    }
+
 });

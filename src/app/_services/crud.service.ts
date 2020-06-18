@@ -15,12 +15,20 @@ export class CrudService {
     return this.http.get<T>(url);
   }
 
+  getAllById<T>(url, id) {
+    return this.http.get<T>(url + '/' + id);
+  }
+
   getFiltered<T>(url, param) {
     return this.http.get<T>(url + '/filtered?company_code_id=' + param);
   }
 
-  getAllPaginate<T>(url, offset, limit, orderBy?, orderByType?) {
+  getAllPaginate<T>(url, offset, limit) {
     return this.http.get<T>(url + '?offset=' + offset + '&limit=' + limit);
+  }
+
+  postPaginate<T>(url, offset, limit, values) {
+    return this.http.post(url + '?offset=' + offset + '&limit=' + limit, values);
   }
 
   search<T>(url, key) {

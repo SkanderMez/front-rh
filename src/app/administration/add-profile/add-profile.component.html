@@ -1,0 +1,163 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title">Add New Profile</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a href="../../index.html">
+                <i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="breadcrumb-item bcrumb-2">
+              <a href="#" onClick="return false;">Job</a>
+            </li>
+            <li class="breadcrumb-item active">Add New Profile</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+          <div class="header">
+            <h2>
+              <strong>Add</strong> New Profile</h2>
+            <ul class="header-dropdown m-r--5">
+              <li class="dropdown">
+                <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown"
+                   href="#" onClick="return false;" role="button">
+                  <i class="material-icons">more_vert</i>
+                </a>
+                <ul class="dropdown-menu pull-right">
+                  <li>
+                    <a href="#" onClick="return false;">Action</a>
+                  </li>
+                  <li>
+                    <a href="#" onClick="return false;">Another action</a>
+                  </li>
+                  <li>
+                    <a href="#" onClick="return false;">Something else here</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="body">
+            <form (submit)="onSubmit()" [formGroup]="addProfileForm">
+              <div class="row clearfix">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <div class="form-line">
+                      <input formControlName="profile_name" class="form-control" placeholder="Profile Name" type="text"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div formArrayName="skills">
+                <div *ngFor="let skill of getSkillFormGroup().controls; let i = index;"
+                >
+                  <div [formGroupName]="i">
+                    <div class="row clearfix">
+                      <!--                  <div class="col-sm-5">-->
+                      <!--                    <div class="form-group">-->
+                      <!--                      <div class="form-line">-->
+                      <!--                        <input formControlName="skill_name" class="form-control" placeholder="Skill Name" type="text"/>-->
+                      <!--                      </div>-->
+                      <!--                    </div>-->
+                      <!--                  </div>-->
+
+
+                      <!--                  <div class="col-sm-5">-->
+                      <!--                  <div class="form-group form-float ">-->
+                      <!--                    <div class="form-line ">-->
+                      <!--                      <input formControlName="skill_name" type="text" class="form-control" name="skill_name" required="">-->
+                      <!--                      <label class="form-label">Skill name</label>-->
+                      <!--                    </div>-->
+                      <!--                  </div>-->
+                      <!--                  </div>-->
+                      <div class="col-sm-5">
+                        <div class="form-group form-float">
+                          <div class="form-line ">
+                            <input class="form-control" formControlName="skill_name" name="skill_name"
+                                   placeholder="Skill name" type="text"/>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="col-sm-5">
+                        <div class="form-group form-float">
+                          <div class="form-line ">
+                            <input class="form-control" formControlName="skill_coeff" placeholder="Skill coeff"
+                                   type="number"/>
+                          </div>
+                          <div class="help-info">Numbers only</div>
+                        </div>
+                      </div>
+
+                      <span style="padding-top: 20px;padding-left:10px;cursor:pointer;"
+                            class="material-icons deleteIcon"
+                            data-toggle="modal"
+                            data-target="#exampleModalCenter">
+                        delete
+                      </span>
+                      <!-- #START# Modal Vertically Centered -->
+                      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"
+                                        aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <div style="text-align: center">
+<!--                                  <i style="font-size: 100px; color: #f15e5e"class="fas fa-times-circle"></i>-->
+
+                                  <img style="width: 130px!important;"  src="../../assets/images/cancel.png">
+                                  <h5 style="font-size: 30px" class="modal-title" id="exampleModalCenterTitle">
+                                    Are you sure ?
+                                  </h5>
+                                </div>
+                                <p style="text-align: center;">Do you want really to delete this skill ? This process cannot be undone</p>
+                              </div>
+                              <div class="modal-footer">
+                                <button class="btn btn-primary waves-effect m-r-15" data-dismiss="modal" type="button">Cancel</button>
+
+                                <button type="button" class="btn btn-danger waves-effect"
+                                        data-dismiss="modal"
+                                        (click)="removeSkill(i)"
+                                >Delete</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- #END# Modal Vertically Centered -->
+
+                      <div class="col-sm-2 text-center">
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button (click)="addSkill()" class="btn btn-primary waves-effect m-r-15" type="button">Add new skill</button>
+
+              <div class="col-lg-12 p-t-20 text-center">
+                <button class="btn btn-primary waves-effect m-r-15" type="submit">Submit</button>
+                <button class="btn btn-danger waves-effect" type="button">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

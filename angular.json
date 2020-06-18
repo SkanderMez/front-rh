@@ -24,9 +24,19 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/app.min.css",
+              "src/assets/css/style.css",
+              "src/assets/css/styles/all-themes.css",
+              "src/assets/js/bundles/rangeSlider/css/ion.rangeSlider.css",
+              "src/assets/js/bundles/rangeSlider/css/ion.rangeSlider.skinFlat.css"
+
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/app.min.js",
+              "src/assets/js/admin.js",
+              "src/assets/js/bundles/rangeSlider/js/ion.rangeSlider.js"
+            ]
           },
           "configurations": {
             "production": {

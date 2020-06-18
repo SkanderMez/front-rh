@@ -1,0 +1,255 @@
+
+
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title">All Profiles</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a href="../../index.html">
+                <i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="breadcrumb-item bcrumb-2">
+              <a href="#" onClick="return false;">Profiles</a>
+            </li>
+            <li class="breadcrumb-item active">All Profiles</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row clearfix animated fadeInLeft">
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <div class="card">
+          <div class="body">
+            <div class="wrapper wrapper-content">
+
+              <div class="">
+                <div class="ibox-title">
+                  <h5>Filtering</h5>
+                </div>
+                <hr>
+                <br>
+
+                <form (ngSubmit)="onSubmitSearch()" [formGroup]="searchForm">
+
+                <div class="row clearfix">
+                  <div class="col-sm-12">
+                    <div class="form-group form-float">
+                      <div class="form-line">
+                        <select class="col-12 m-t-20 p-l-0" formControlName="profile">
+                          <option disabled value="" selected>Select your profil</option>
+                          <option value="backend">Backend</option>
+                          <option value="frontend">Frontend</option>
+                          <option value="fullstackjs">FullstackJS</option>
+                          <option value="java/jee">Java/JEE</option>
+                          <option value="phpsymfony">Symphony</option>
+                          <option value="ArchitecteJee">ArchitecteJEE</option>
+                          <option value="Embedded">Embedded</option>
+                          <option value="DRUPAL">Drupal</option>
+                          <option value="PO">PO</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row clearfix">
+                  <div class="col-sm-12">
+                    <div class="form-group form-float">
+                      <div class="form-line">
+                        <select class="col-12 m-t-20 p-l-0" formControlName="location">
+                          <option value="" disabled selected>Select yout location</option>
+                          <option value="0">Tunisia</option>
+                          <option value="1">France</option>
+                          <option value="2">Other</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                <p class="font-bold col-teal">Experience </p>
+                <br>
+
+                <div #experience  class="test-slider"></div>
+
+                <br>
+                <br>
+                </div>
+
+                <div>
+                <p class="font-bold col-teal">Stability </p>
+                <br>
+
+                  <div #stability  class="test-slider"></div>
+
+                <br>
+                <br>
+                </div>
+
+
+                <p class="font-bold col-teal">School class</p>
+
+                <div class="form-group">
+                  <label>
+                    <input checked="" class="with-gap" name="school" value="0" type="radio" formControlName="school">
+                    <span>First Class </span>
+                  </label>
+                  <label>
+                    <input class="with-gap" name="school" value="1" type="radio" formControlName="school">
+                    <span>Second Class </span>
+                  </label>
+                  <label>
+                    <input class="with-gap" value="2" name="school" type="radio" formControlName="school">
+                    <span>Third Class </span>
+                  </label>
+                </div>
+                <div class="row">
+                  <div class="col-lg-4">
+                  </div>
+                  <button (click)="filterProfiles()" class="btn btn-primary m-t-15 waves-effect" type="submit">Search
+                  </button>
+
+                </div>
+                </form>
+
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+        <div class="card">
+          <div class="card-body ">
+            <div class="wrapper wrapper-content ">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="ibox">
+                    <div class="ibox-title">
+                      <span class="pull-right">(<strong>{{labeled_users.count?labeled_users.count:'0'}}</strong>) resume</span>
+                      <h5>All Profiles</h5>
+                    </div>
+
+                    <div *ngIf="users.length !== 0 ">
+                    <div  *ngFor="let user of users; let i = index" class="ibox-content one-resume">
+                      <div class="table-responsive">
+                        <table class="table shoping-cart-table ">
+                          <tbody>
+                          <tr>
+                            <td>
+                              <div class="cart-product-imitation">
+                                <img alt=""
+                                     src="../../assets/images/cv.png"
+                                      style="cursor:pointer;"
+                                     (click)="checkFullResume(user.id)"
+                                >
+                              </div>
+                            </td>
+                            <td class="desc" style="width: 70%">
+                              <h3>
+                                <a class="text-navy" style="color: #343d45">
+                                  {{user.personal_info.name}}
+                                </a>
+                              </h3>
+                              <div class="small">
+                                <strong>Profile:</strong>
+                                <p>
+                                <span *ngIf="labeled_users.labeled_users[i].labels.backend === 1"
+                                      class="label bg-red m-b-10">Backend</span>
+                                  <span *ngIf="labeled_users.labeled_users[i].labels.frontend === 1"
+                                        class="label bg-cyan m-b-10">Frontend</span>
+                                  <span *ngIf="labeled_users.labeled_users[i].labels.phpsymfony === 1"
+                                        class="label bg-light-green m-b-10">PHP/Symfony</span>
+                                  <span *ngIf="labeled_users.labeled_users[i].labels.ArchitecteJee === 1"
+                                        class="label bg-amber m-b-10">ArchitecteJEE</span>
+                                  <span *ngIf="labeled_users.labeled_users[i].labels.Embedded === 1"
+                                        class="label bg-blue-grey m-b-10">Embarqué</span>
+                                  <span *ngIf="labeled_users.labeled_users[i].labels.fullstackjs === 1"
+                                        class="label bg-pink m-b-10">FullstackJS</span>
+                                  <span *ngIf="labeled_users.labeled_users[i].labels.DRUPAL === 1"
+                                        class="label bg-deep-purple m-b-10">Drupal</span>
+                                  <span *ngIf="labeled_users.labeled_users[i].labels.PO === 1"
+                                        class="label bg-yellow m-b-10">PO</span>
+                                  <span *ngIf="labeled_users.labeled_users[i].labels.java/jee === 1"
+                                        class="label bg-deep-orange m-b-10">Java/JEE</span>
+                                  <span *ngIf="labeled_users.labeled_users[i].labels.PO ===0 && labeled_users.labeled_users[i].labels.ArchitecteJee === 0 &&
+                                      labeled_users.labeled_users[i].labels.DRUPAL ===0 && labeled_users.labeled_users[i].labels.fullstackjs ===0 && labeled_users.labeled_users[i].labels.Embedded ===0&&
+                                      labeled_users.labeled_users[i].labels.phpsymfony ===0 && labeled_users.labeled_users[i].labels.frontend ===0 && labeled_users.labeled_users[i].labels.backend ===0 "
+                                        class="label bg-grey m-b-10">No Skill</span>
+                                </p>
+                              </div>
+                              <div class="small">
+                                <strong>location:</strong>
+                                <p>{{user.personal_info.location ? user.personal_info.location : "Non available"}}</p>
+                              </div>
+                              <div class="small m-b-none">
+                                <strong>email:</strong>
+                                <p>{{user.personal_info.email ? user.personal_info.email : "Non available"}}</p>
+                              </div>
+                              <div class="small m-b-none">
+                                <strong>Phone:</strong>
+                                <p>{{user.personal_info.phone ? user.personal_info.phone : "Non available"}}</p>
+                              </div>
+                            </td>
+                            <td style="width: 10%">
+                              <button (click)="checkFullResume(user.id)" class="btn-hover btn-border-radius color-10"
+                                      style="    background-image: linear-gradient(to right,#26a69a,#26a69a,#343d45,#343d45);">
+                                Check profile
+                              </button>
+                            </td>
+                            <td style="width: 10%">
+                              <button (click)="checkRecommendedProfiles(user.id)"
+                                class="btn-hover btn-border-radius color-10"
+                                      style="    background-image: linear-gradient(to right,#26a69a,#26a69a,#343d45,#343d45);">
+                                Get Similar profiles
+                              </button>
+                            </td>
+
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    </div>
+
+                    <div *ngIf="users.length === 0 " style="text-align: center">
+                      <img  src="../../assets/images/no-result-found.png"/>
+                    </div>
+                    <div class="ibox-content">
+                      <div class="row">
+                        <div class="col-sm-7 ">
+                          <p class="p-15">Showing 1 - 5 of {{labeled_users.count}}</p>
+                        </div>
+                        <div class="col-sm-5 text-right">
+                          <div class="pull-right p-15">
+                            <button [disabled]="actualOffset-limit<0" (click)="navigate_prev()" class="btn btn-primary" type="button">
+                              <i class="material-icons">navigate_before</i>
+                            </button>
+                            &nbsp;&nbsp;
+                            <button [disabled]="actualOffset+limit>labeled_users.count"  class="btn btn-primary" type="button">
+                              <i (click)="navigate_next()" class="material-icons">navigate_next</i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+

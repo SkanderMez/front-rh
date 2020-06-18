@@ -1,0 +1,150 @@
+
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title">All Profiles</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a href="../../index.html">
+                <i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="breadcrumb-item bcrumb-2">
+              <a href="#" onClick="return false;">Profiles</a>
+            </li>
+            <li class="breadcrumb-item active">All Profiles</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row clearfix animated fadeInLeft">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+          <div class="card-body ">
+            <div class="wrapper wrapper-content ">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="ibox">
+                    <div class="ibox-title">
+                      <span class="pull-right">(<strong>{{recommendedUsers.length?recommendedUsers.length:'0'}}</strong>) resume</span>
+                      <h5>All Profiles</h5>
+                    </div>
+
+                    <div *ngIf="recommendedUsersProfiles?.length !== 0 && completeSearch">
+                      <div  *ngFor="let user of recommendedUsersProfiles; let i = index" class="ibox-content one-resume">
+                        <div class="table-responsive">
+                          <table class="table shoping-cart-table ">
+                            <tbody>
+                            <tr>
+                              <td>
+                                <div class="cart-product-imitation">
+                                  <img alt=""
+                                       src="../../assets/images/cv.png"
+                                       style="cursor:pointer;"
+                                       (click)="checkFullResume(user.id)"
+                                  >
+                                </div>
+                              </td>
+                              <td class="desc" style="width: 70%">
+                                <h3>
+                                  <a class="text-navy" style="color: #343d45">
+                                    {{user.personal_info.name}}
+                                  </a>
+                                </h3>
+<!--                                <div class="small">-->
+<!--                                  <strong>Profile:</strong>-->
+<!--                                  <p>-->
+<!--                                <span *ngIf="recommendedUsersLabeledProfiles.labeled_users[i].labels.backend === 1"-->
+<!--                                      class="label bg-red m-b-10">Backend</span>-->
+<!--                                    <span *ngIf="recommendedUsersLabeledProfiles.labeled_users[i].labels.frontend === 1"-->
+<!--                                          class="label bg-cyan m-b-10">Frontend</span>-->
+<!--                                    <span *ngIf="recommendedUsersLabeledProfiles.labeled_users[i].labels.phpsymfony === 1"-->
+<!--                                          class="label bg-light-green m-b-10">PHP/Symfony</span>-->
+<!--                                    <span *ngIf="recommendedUsersLabeledProfiles.labeled_users[i].labels.ArchitecteJee === 1"-->
+<!--                                          class="label bg-amber m-b-10">ArchitecteJEE</span>-->
+<!--                                    <span *ngIf="recommendedUsersLabeledProfiles.labeled_users[i].labels.Embedded === 1"-->
+<!--                                          class="label bg-blue-grey m-b-10">Embarqué</span>-->
+<!--                                    <span *ngIf="recommendedUsersLabeledProfiles.labeled_users[i].labels.fullstackjs === 1"-->
+<!--                                          class="label bg-pink m-b-10">FullstackJS</span>-->
+<!--                                    <span *ngIf="recommendedUsersLabeledProfiles.labeled_users[i].labels.DRUPAL === 1"-->
+<!--                                          class="label bg-deep-purple m-b-10">Drupal</span>-->
+<!--                                    <span *ngIf="recommendedUsersLabeledProfiles.labeled_users[i].labels.PO === 1"-->
+<!--                                          class="label bg-yellow m-b-10">PO</span>-->
+<!--                                    <span *ngIf="recommendedUsersLabeledProfiles.labeled_users[i].labels.java/jee === 1"-->
+<!--                                          class="label bg-deep-orange m-b-10">Java/JEE</span>-->
+<!--                                    <span *ngIf="recommendedUsersLabeledProfiles.labeled_users[i].labels.PO ===0 && recommendedUsersLabeledProfiles.labeled_users[i].labels.ArchitecteJee === 0 &&-->
+<!--                                      recommendedUsersLabeledProfiles.labeled_users[i].labels.DRUPAL ===0 && recommendedUsersLabeledProfiles.labeled_users[i].labels.fullstackjs ===0 && recommendedUsersLabeledProfiles.labeled_users[i].labels.Embedded ===0&&-->
+<!--                                      recommendedUsersLabeledProfiles.labeled_users[i].labels.phpsymfony ===0 && recommendedUsersLabeledProfiles.labeled_users[i].labels.frontend ===0 && recommendedUsersLabeledProfiles.labeled_users[i].labels.backend ===0 "-->
+<!--                                          class="label bg-grey m-b-10">No Skill</span>-->
+<!--                                  </p>-->
+<!--                                </div>-->
+                                <div class="small">
+                                  <strong>location:</strong>
+                                  <p>{{user.personal_info.location ? user.personal_info.location : "Non available"}}</p>
+                                </div>
+                                <div class="small m-b-none">
+                                  <strong>email:</strong>
+                                  <p>{{user.personal_info.email ? user.personal_info.email : "Non available"}}</p>
+                                </div>
+                                <div class="small m-b-none">
+                                  <strong>Phone:</strong>
+                                  <p>{{user.personal_info.phone ? user.personal_info.phone : "Non available"}}</p>
+                                </div>
+                              </td>
+                              <td style="width: 10%">
+                                <button (click)="checkFullResume(user.id)" class="btn-hover btn-border-radius color-10"
+                                        style="    background-image: linear-gradient(to right,#26a69a,#26a69a,#343d45,#343d45);">
+                                  Check profile
+                                </button>
+                              </td>
+                              <td style="width: 10%">
+                                <button class="btn-hover btn-border-radius color-10"
+                                        style="    background-image: linear-gradient(to right,#26a69a,#26a69a,#343d45,#343d45);">
+                                  Get Similar profiles
+                                </button>
+                              </td>
+
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div *ngIf="recommendedUsersProfiles.length === 0 && completeSearch" style="text-align: center">
+                      <img  src="../../assets/images/no-result-found.png"/>
+                    </div>
+                    <div class="ibox-content">
+                      <div class="row">
+                        <div class="col-sm-7 ">
+                          <p class="p-15">Showing 1 - 10 of {{recommendedUsers.length?recommendedUsers.length: '0'}}</p>
+                        </div>
+                        <div class="col-sm-5 text-right">
+                          <div class="pull-right p-15">
+                            <button disabled class="btn btn-primary" type="button">
+                              <i class="material-icons">navigate_before</i>
+                            </button>
+                            &nbsp;&nbsp;
+                            <button disabled  class="btn btn-primary" type="button">
+                              <i  class="material-icons">navigate_next</i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+

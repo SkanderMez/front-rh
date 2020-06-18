@@ -1,0 +1,213 @@
+{
+  "_id":{
+    "$oid":"5e20582f2d080b22a8f779a3"
+  },
+  "search":"symfony",
+  "url":"https://www.linkedin.com/in/amina-naouali-44337216",
+  "personal_info":{
+    "name":"Amina NAOUALI",
+    "headline":"Chef de projet chez SAB Tunisie",
+    "company":"SAB Tunisie",
+    "school":"Faculté des Sciences de Tunis",
+    "location":"Tunisia",
+    "summary":"Chef de projet Informatique (Oracle forms, métier bancaire et logistique)",
+    "image":"https://media.licdn.com/dms/image/C4D03AQGp9I_x83ns6w/profile-displayphoto-shrink_200_200/0?e=1571875200&v=beta&t=hR8UAVLRZ5rGUcXSV_B6RvZ6Wz9KlLun18azCKAEA-Y",
+    "followers":"",
+    "email":null,
+    "phone":null,
+    "connected":null,
+    "websites":[
+
+    ]
+  },
+  "skills":[
+    {
+      "name":"SQL",
+      "endorsements":"3"
+    },
+    {
+      "name":"Oracle",
+      "endorsements":"3"
+    },
+    {
+      "name":"Java",
+      "endorsements":"2"
+    },
+    {
+      "name":"Gestion d'équipe",
+      "endorsements":"2"
+    },
+    {
+      "name":"PL/SQL",
+      "endorsements":"1"
+    },
+    {
+      "name":"Oracle Forms",
+      "endorsements":"1"
+    },
+    {
+      "name":"Gestion de projet",
+      "endorsements":"1"
+    },
+    {
+      "name":"Commerce international",
+      "endorsements":"1"
+    },
+    {
+      "name":"Métier bancaire",
+      "endorsements":"1"
+    },
+    {
+      "name":"SQR",
+      "endorsements":"1"
+    },
+    {
+      "name":"Trello",
+      "endorsements":"1"
+    },
+    {
+      "name":"Logistique : WMS et TMS",
+      "endorsements":"1"
+    },
+    {
+      "name":"Management",
+      "endorsements":{
+        "$numberInt":"0"
+      }
+    },
+    {
+      "name":"Talend",
+      "endorsements":{
+        "$numberInt":"0"
+      }
+    },
+    {
+      "name":"Sciforma",
+      "endorsements":{
+        "$numberInt":"0"
+      }
+    },
+    {
+      "name":"Certaines commandes AS400",
+      "endorsements":{
+        "$numberInt":"0"
+      }
+    }
+  ],
+  "scraped_time":{
+    "$numberLong":"1566497596000"
+  },
+  "experiences":{
+    "jobs":[
+      {
+        "title":"Chef de projet",
+        "company":"SAB Tunisie",
+        "date_range":"Jan 2017 – Present",
+        "location":null,
+        "description":"Projet réglementaire VUC (Vue Unique Client) :- Assistance métier et technique de l’équipe de développement,- Elaboration des propositions commerciales pour les aménagements,- Elaboration des dossiers techniques,- Elaboration des plans de charge,- Suivi des réalisations,- Suivi des déclarations clients des fichiers VUC auprès du FGDR Projet BEA (Banque Extérieure d'Algérie):- Suivi de l’état d’avancement des aménagements chez les différentes équipes,- Assurer le respect des différentes procédures- Planification à l’aide de Sciforma- Suivi budgétaire : consommé, reste à faire, dépassement Projet Domiciliation :- Formation et assistance métier de l’équipe DMC (Domiciliation des Opérations de Comex ) Formation Management au cours des mois d'Octobre et Novembre 2018 (72h) au sein de la cabinet Mix Learning)",
+        "li_company_url":""
+      },
+      {
+        "title":"Chef de projet Oracle Forms",
+        "company":"PROLOG Business Solutions",
+        "date_range":"Oct 2016 – Jan 2017",
+        "location":"Tunis",
+        "description":"Octobre 2016 – Janvier 2017 : Chef de projet Oracle Forms à Prolog Business Solutions :-\tInstallation et paramétrage du produit TMS (Transport Management System) chez un client.- Intervention chez les clients pour corriger des anomalies ou ajouter des fonctionnalités auxsystèmes WMS (Warehouse Management System) et TMS (Transport Management System).- Formation technique (Oracle Forms, PL/SQL, SQR) et métier (logistique) des nouveaux recrus.",
+        "li_company_url":""
+      },
+      {
+        "title":"Chef de projet informatique",
+        "date_range":"Mar 2015 – Aug 2016",
+        "location":"IDEE",
+        "description":"Mars 2015-Août 2016 : Chef de projet à IDEE (Informatique Développement Et Etude) :- Assistance technique et métier de l’équipe de développement,- Validation des cahiers de spécifications fonctionnelles et techniques,- Préparation du modèle conceptuel des données du produit « Crédits de gestion » : mobilisation des créances, engagement par signature, escompte, gestion du marché, autorisation d’engagement,- Préparation du modèle conceptuel des données du module « Analyse Financière »,- Assistance technique (outils Oracle et J2EE) et métier de l’équipe de développement du module « Analyse Financière »,- Modification et comptabilisation du module « Placement »,- Inventaire des fonctions PL/SQL développées, audit du code et réorganisation de ces fonctions dans des packages sous une base de données Oracle afin de séparer la couche présentation de la couche métier.",
+        "company":"IDEE",
+        "li_company_url":"https://www.linkedin.com//company/987161/"
+      },
+      {
+        "title":"Chef de projet",
+        "date_range":"Sep 2011 – Feb 2015",
+        "location":null,
+        "description":"Septembre 2011- Février 2015 : Chef de projet SBE (Service Bancaire Etranger) à IDEE (Informatique Développement Et Etude) :- Comptabilisation du produit SBE (transfert émis et reçu, crédit documentaire import et export, remise documentaire import et export, lettre de garantie émise et reçue),- Installation du produit SBE chez la BTE (Banque de Tunisie et des Emirats),- Former les nouvelles recrues sur le langage PL/SQL et les outils Forms et Reports d’oracle,- Assistance technique (outils Oracle) et métier (commerce international) de l’équipe SBE,- Validation des spécifications fonctionnelles,- Elaboration du dossier technique,- Elaboration des plans de tests unitaires et d’intégration,- Elaboration des rapports de tests d’intégration,- Mise en production du module « Placement en Devise » chez la BTE,- Préparation des modèles conceptuels de données à l’aide de l’outil « Oracle SQL Developer Data Modeler »,- Mission durant un mois (24/02/2012-24/03/2012) à Rwanda pour la mise en place du module « télé compensation » et maintenance du module « Agence »,- Développement d’une application d’interfaçage entre le produit iBank d’IDEE et l’application « monétique » de HPS, pour la BCS (Banque Commerciale de Sahil) de Mali : développement des procédures stockées dans une base oracle et écriture d’un programme Java qui écoute un port TCP/IP, reçoit des messages ISO du serveur monétique et appelle les procédures stockées pour répondre à ces messages.",
+        "company":"IDEE",
+        "li_company_url":"https://www.linkedin.com//company/987161/"
+      },
+      {
+        "title":"Développeur",
+        "date_range":"Sep 2009 – Aug 2011",
+        "location":"Tunisia",
+        "description":"Janvier 2011-Août 2011 : - Conception et développement d’une nouvelle version du module « crédit documentaire » en utilisant Forms 10g  et une base de données Oracle, à IDEE.Aout 2010-Décembre 2010 : Modification du produit SBE de l’application IBANK  suite aux travaux d’interfaçage avec l’application MEGARA (application salle de marchés), en utilisant Forms 10g  et une base de données Oracle, à IDEE.Septembre 2009-Juillet 2010 : Développement d’une application CNSS pour le Congo en utilisant une base de données Oracle et la plateforme J2EE avec JSF, EJB3, Icefaces, Netbeans et le serveur d’application JBoss, à IDEE.",
+        "company":"IDEE",
+        "li_company_url":"https://www.linkedin.com//company/987161/"
+      }
+    ],
+    "education":[
+      {
+        "name":"Faculté des Sciences de Tunis",
+        "degree":"Diplôme national d'ingénieur en informatique",
+        "grades":null,
+        "field_of_study":"Ingénierie informatique",
+        "date_range":"2006 – 2009",
+        "activities":null
+      },
+      {
+        "name":"Institut Préparatoire aux Etudes d'Ingénieurs de Nabeul",
+        "degree":"Diplôme de fin du premier cycle, maths-physique",
+        "grades":null,
+        "field_of_study":"Maths-Physique",
+        "date_range":"2004 – 2006",
+        "activities":null
+      },
+      {
+        "name":"Lycée Pilote de Tunis",
+        "degree":"Baccalauréat Mathématiques",
+        "grades":null,
+        "field_of_study":"Mathématiques",
+        "date_range":"2000 – 2004",
+        "activities":"Club de peinture"
+      }
+    ],
+    "volunteering":[
+
+    ]
+  },
+  "interests":[
+    "Oracle Forms and Reports Developers",
+    "Frédéric Oudéa",
+    "Valeo",
+    "Sage",
+    "Auchan Retail",
+    "ALTEN"
+  ],
+  "accomplishments":{
+    "publications":[
+
+    ],
+    "certifications":[
+
+    ],
+    "patents":[
+
+    ],
+    "courses":[
+
+    ],
+    "projects":[
+
+    ],
+    "honors":[
+
+    ],
+    "test_scores":[
+
+    ],
+    "languages":[
+      "Anglais",
+      "Arabe",
+      "Espagnol",
+      "Fançais"
+    ],
+    "organizations":[
+
+    ]
+  }
+}

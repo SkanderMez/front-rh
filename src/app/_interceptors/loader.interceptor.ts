@@ -2,28 +2,17 @@ import {Injectable} from '@angular/core';
 import {HttpBackend, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {finalize} from 'rxjs/operators';
-import {LoaderService} from '../_services/loader.service';
+import {Globals} from '../_globals/globals';
 
-@Injectable()
+@Injectable(
+)
 export class LoaderInterceptor implements HttpInterceptor {
-  constructor(public loaderService: LoaderService) {
+  constructor(private globals: Globals) {
   }
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log('Http');
-    this.loaderService.show();
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {this.globals.loading = true;
     return next.handle(req).pipe(
-      finalize(() => this.loaderService.hide())
+      finalize(() =>     this.globals.loading = false)
     );
   }
 }
-
-/*
-@Injectable()
-export class LoaderInterceptor implements HttpBackend {
-
-  handle(req: HttpRequest<any>): Observable<HttpEvent<any>> {
-    console.log('Intercepted');
-    return undefined;
-  }
-} */
