@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {CrudService} from '../../_services/crud.service';
-import {BASE_API, PROFILE} from '../../_globals/vars';
+import {CrudService} from '../../../_services/crud.service';
+import {BASE_API, PROFILE} from '../../../_globals/vars';
 
 @Component({
   selector: 'app-add-profile',

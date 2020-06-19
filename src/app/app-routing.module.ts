@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import {OneProfileComponent} from './profile/one-profile/one-profile.component';
 import {AllProfilesComponent} from './profile/all-profiles/all-profiles.component';
 import {SimilarProfilesComponent} from './profile/similar-profiles/similar-profiles.component';
-import {AddProfileComponent} from './administration/add-profile/add-profile.component';
+import {AddProfileComponent} from './administration/profile/add-profile/add-profile.component';
+import {ListProfilesComponent} from './administration/profile/list-profiles/list-profiles.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'add-profile',
     component: AddProfileComponent
+  },
+  {
+    path: 'list-profiles',
+    component: ListProfilesComponent
   },
 ];
 @NgModule({

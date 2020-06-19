@@ -29,7 +29,8 @@
               "src/assets/css/style.css",
               "src/assets/css/styles/all-themes.css",
               "src/assets/js/bundles/rangeSlider/css/ion.rangeSlider.css",
-              "src/assets/js/bundles/rangeSlider/css/ion.rangeSlider.skinFlat.css"
+              "src/assets/js/bundles/rangeSlider/css/ion.rangeSlider.skinFlat.css",
+              "src/assets/js/bundles/multiselect/css/multi-select.css"
 
             ],
             "scripts": [

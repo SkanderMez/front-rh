@@ -19,6 +19,7 @@ export class AllProfilesComponent implements OnInit {
 
   url1 = 'assets/js/pages/ui/range-sliders.js';
   url2 = 'assets/js/pages/forms/form-data.js';
+  url3 = 'assets/js/bundles/multiselect/js/jquery.multi-select.js';
   loading;
   users_ids = [];
   labeled_users: LabeledUserModel;
@@ -43,6 +44,7 @@ export class AllProfilesComponent implements OnInit {
     this.getAllUsersPaginateWithoutFilters(this.actualOffset, this.limit);
     this.initilizeRangeSliderScript(this.url1);
     this.initilizeSelectScript(this.url2);
+    this.initilizeSelectScript(this.url3);
     this.initilizeForm();
   }
 
@@ -75,6 +77,7 @@ export class AllProfilesComponent implements OnInit {
   }
 
   getAllUsersPaginateWithoutFilters(offset, limit) {
+    this.actualOffset = 0;
     this.loading = true;
     this.users = [];
     this.users_ids = [];
@@ -130,11 +133,11 @@ export class AllProfilesComponent implements OnInit {
 
   navigate_next() {
     this.actualOffset += 5;
-    this.filteringQuery ? this.onSubmitSearch() : this.getAllUsersPaginateWithoutFilters(this.actualOffset, this.limit);
+    this.filteringQuery ? this.navigateSearch(false) : this.getAllUsersPaginateWithoutFilters(this.actualOffset , this.limit);
   }
   navigate_prev() {
     this.actualOffset -= 5;
-    this.filteringQuery ? this.onSubmitSearch() : this.getAllUsersPaginateWithoutFilters(this.actualOffset, this.limit);
+    this.filteringQuery ? this.navigateSearch(false) : this.getAllUsersPaginateWithoutFilters(this.actualOffset , this.limit);
   }
 
   checkFullResume(userId: any) {
@@ -143,6 +146,15 @@ export class AllProfilesComponent implements OnInit {
 
   filterProfiles() {
 
+  }
+
+  navigateSearch(isNewRequest: boolean) {
+    if (isNewRequest) {
+      this.actualOffset = 0;
+      this.onSubmitSearch();
+    } else {
+      this.onSubmitSearch();
+    }
   }
 
   onSubmitSearch() {
@@ -159,7 +171,7 @@ export class AllProfilesComponent implements OnInit {
       max_experience: max_experiencee , min_stability: 1, max_stability: 3 }).subscribe(
       (data: any) => {
         console.log('search result');
-        console.log(data)
+        console.log(data);
         this.labeled_users = data;
         data.labeled_users.forEach((labeled_user) => {
           this.users_ids.push(labeled_user.id);
