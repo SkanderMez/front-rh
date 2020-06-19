@@ -8,12 +8,14 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { OneProfileComponent } from './profile/one-profile/one-profile.component';
 import { AllProfilesComponent } from './profile/all-profiles/all-profiles.component';
 import { SimilarProfilesComponent } from './profile/similar-profiles/similar-profiles.component';
-import { AddProfileComponent } from './administration/add-profile/add-profile.component';
-import { ListProfilesComponent } from './administration/list-profiles/list-profiles.component';
-import { UpdateProfilesComponent } from './administration/update-profiles/update-profiles.component';
+import { AddProfileComponent } from './administration/profile/add-profile/add-profile.component';
+import { ListProfilesComponent } from './administration/profile/list-profiles/list-profiles.component';
+import { UpdateProfilesComponent } from './administration/profile/update-profiles/update-profiles.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {LoaderInterceptor} from './_interceptors/loader.interceptor';
+import { AddSchoolComponent } from './administration/school/add-school/add-school.component';
+import { ListSchoolsComponent } from './administration/school/list-schools/list-schools.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import {LoaderInterceptor} from './_interceptors/loader.interceptor';
     SimilarProfilesComponent,
     AddProfileComponent,
     ListProfilesComponent,
-    UpdateProfilesComponent
+    UpdateProfilesComponent,
+    AddSchoolComponent,
+    ListSchoolsComponent
   ],
   imports: [
     BrowserModule,
