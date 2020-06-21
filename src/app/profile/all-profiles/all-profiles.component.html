@@ -81,15 +81,6 @@
                 <br>
                 </div>
 
-                <div>
-                <p class="font-bold col-teal">Stability </p>
-                <br>
-
-                  <div #stability  class="test-slider"></div>
-
-                <br>
-                <br>
-                </div>
 
 
                 <p class="font-bold col-teal">School class</p>
@@ -135,12 +126,12 @@
                 <div class="col-md-12">
                   <div class="ibox">
                     <div class="ibox-title">
-                      <span class="pull-right">(<strong>{{labeled_users.count?labeled_users.count:'0'}}</strong>) resume</span>
-                      <h5>All Profiles</h5>
+                      <span class="pull-right">(<strong>{{searchResult.count?searchResult.count:'0'}}</strong>) resume</span>
+                      <h5>All Resume</h5>
                     </div>
 
-                    <div *ngIf="users.length !== 0 ">
-                    <div  *ngFor="let user of users; let i = index" class="ibox-content one-resume">
+                    <div *ngIf="searchResult?.count?searchResult.count:0 !== 0 ">
+                    <div  *ngFor="let user of searchResult.labeled_users; let i = index" class="ibox-content one-resume">
                       <div class="table-responsive">
                         <table class="table shoping-cart-table ">
                           <tbody>
@@ -163,27 +154,27 @@
                               <div class="small">
                                 <strong>Profile:</strong>
                                 <p>
-                                <span *ngIf="labeled_users.labeled_users[i].labels.backend === 1"
+                                <span *ngIf="user.labels.backend === 1"
                                       class="label bg-red m-b-10">Backend</span>
-                                  <span *ngIf="labeled_users.labeled_users[i].labels.frontend === 1"
+                                  <span *ngIf="user.labels.frontend === 1"
                                         class="label bg-cyan m-b-10">Frontend</span>
-                                  <span *ngIf="labeled_users.labeled_users[i].labels.phpsymfony === 1"
+                                  <span *ngIf="user.labels.phpsymfony === 1"
                                         class="label bg-light-green m-b-10">PHP/Symfony</span>
-                                  <span *ngIf="labeled_users.labeled_users[i].labels.ArchitecteJee === 1"
+                                  <span *ngIf="user.labels.architectejee === 1"
                                         class="label bg-amber m-b-10">ArchitecteJEE</span>
-                                  <span *ngIf="labeled_users.labeled_users[i].labels.Embedded === 1"
+                                  <span *ngIf="user.labels.embedded === 1"
                                         class="label bg-blue-grey m-b-10">Embarqué</span>
-                                  <span *ngIf="labeled_users.labeled_users[i].labels.fullstackjs === 1"
+                                  <span *ngIf="user.labels.fullstackjs === 1"
                                         class="label bg-pink m-b-10">FullstackJS</span>
-                                  <span *ngIf="labeled_users.labeled_users[i].labels.DRUPAL === 1"
+                                  <span *ngIf="user.labels.drupal === 1"
                                         class="label bg-deep-purple m-b-10">Drupal</span>
-                                  <span *ngIf="labeled_users.labeled_users[i].labels.PO === 1"
+                                  <span *ngIf="user.labels.po === 1"
                                         class="label bg-yellow m-b-10">PO</span>
-                                  <span *ngIf="labeled_users.labeled_users[i].labels.javajee === 1"
+                                  <span *ngIf="user.labels.java_jee === 1"
                                         class="label bg-deep-orange m-b-10">Java/JEE</span>
-                                  <span *ngIf="labeled_users.labeled_users[i].labels.PO ===0 && labeled_users.labeled_users[i].labels.ArchitecteJee === 0 &&
-                                      labeled_users.labeled_users[i].labels.DRUPAL ===0 && labeled_users.labeled_users[i].labels.fullstackjs ===0 && labeled_users.labeled_users[i].labels.Embedded ===0&&
-                                      labeled_users.labeled_users[i].labels.phpsymfony ===0 && labeled_users.labeled_users[i].labels.frontend ===0 && labeled_users.labeled_users[i].labels.backend ===0 "
+                                  <span *ngIf="user.labels.po ===0 && user.labels.architectejee === 0 &&
+                                      user.labels.drupal ===0 && user.labels.fullstackjs ===0 && user.labels.embedded ===0&&
+                                      user.labels.phpsymfony ===0 && user.labels.frontend ===0 && user.labels.backend ===0 "
                                         class="label bg-grey m-b-10">No Skill</span>
                                 </p>
                               </div>
@@ -198,6 +189,16 @@
                               <div class="small m-b-none">
                                 <strong>Phone:</strong>
                                 <p>{{user.personal_info.phone ? user.personal_info.phone : "Non available"}}</p>
+                              </div>
+                            </td>
+                            <td class="desc" style="width: 70%">
+                              <div class="small m-b-none">
+                                <strong>Experience:</strong>
+                                <p>{{user.total_experience ? user.total_experience + ' years' : "Non available"}} </p>
+                              </div>
+                              <div class="small m-b-none">
+                                <strong>Stability:</strong>
+                                <p>{{user.stability ? user.stability + ' years': "Non available"}}</p>
                               </div>
                             </td>
                             <td style="width: 10%">
@@ -221,13 +222,13 @@
                     </div>
                     </div>
 
-                    <div *ngIf="users.length === 0 " style="text-align: center">
+                    <div *ngIf="searchResult?.count=== 0 " style="text-align: center">
                       <img  src="../../assets/images/no-result-found.png"/>
                     </div>
                     <div class="ibox-content">
                       <div class="row">
                         <div class="col-sm-7 ">
-                          <p class="p-15">Showing 1 - 5 of {{labeled_users.count}}</p>
+                          <p class="p-15">Showing 1 - 5 of {{searchResult.count}}</p>
                         </div>
                         <div class="col-sm-5 text-right">
                           <div class="pull-right p-15">
@@ -235,7 +236,7 @@
                               <i class="material-icons">navigate_before</i>
                             </button>
                             &nbsp;&nbsp;
-                            <button [disabled]="actualOffset+limit>labeled_users.count" (click)="navigate_next()"  class="btn btn-primary" type="button">
+                            <button [disabled]="actualOffset+limit>searchResult.count" (click)="navigate_next()"  class="btn btn-primary" type="button">
                               <i class="material-icons">navigate_next</i>
                             </button>
                           </div>

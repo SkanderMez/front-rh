@@ -21,7 +21,7 @@
     </div>
     <!-- Your content goes here  -->
     <div class="row clearfix animated fadeInLeft">
-      <div class="col-lg-4 col-md-12">
+      <div class="col-lg-12 col-md-12">
         <div class="card ">
           <div class="m-b-20">
             <div class="contact-grid">
@@ -41,12 +41,34 @@
                                         <i
                                           class="material-icons">phone</i>{{resume.personal_info.phone ? resume.personal_info.phone : "Non available"}}</span>
               </div>
-              <span class="label bg-cyan m-b-10">Backend</span> <span class="label label-warning m-r-10">J2EE</span>
+
+              <span *ngIf="resume.labels.backend === 1"
+                    class="label bg-red m-b-10">Backend</span>
+              <span *ngIf="resume.labels.frontend === 1"
+                    class="label bg-cyan m-b-10">Frontend</span>
+              <span *ngIf="resume.labels.phpsymfony === 1"
+                    class="label bg-light-green m-b-10">PHP/Symfony</span>
+              <span *ngIf="resume.labels.architectejee === 1"
+                    class="label bg-amber m-b-10">ArchitecteJEE</span>
+              <span *ngIf="resume.labels.embedded === 1"
+                    class="label bg-blue-grey m-b-10">Embarqué</span>
+              <span *ngIf="resume.labels.fullstackjs === 1"
+                    class="label bg-pink m-b-10">FullstackJS</span>
+              <span *ngIf="resume.labels.drupal === 1"
+                    class="label bg-deep-purple m-b-10">Drupal</span>
+              <span *ngIf="resume.labels.po === 1"
+                    class="label bg-yellow m-b-10">PO</span>
+              <span *ngIf="resume.labels.java_jee === 1"
+                    class="label bg-deep-orange m-b-10">Java/JEE</span>
+              <span *ngIf="resume.labels.po ===0 && resume.labels.architectejee === 0 &&
+                                      resume.labels.drupal ===0 && resume.labels.fullstackjs ===0 && resume.labels.embedded ===0&&
+                                      resume.labels.phpsymfony ===0 && resume.labels.frontend ===0 && resume.labels.backend ===0 "
+                    class="label bg-grey m-b-10">No Skill</span>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-8 col-md-12">
+      <div class="col-lg-12 col-md-12">
         <div class="card">
           <div class="profile-tab-box">
             <div class="p-l-20">
@@ -102,6 +124,14 @@
                     <br>
 
                     <span class="font-bold col-blue-grey ">  Location :  </span>{{resume.personal_info.location?resume.personal_info.location:'Non available'}}
+                    <br>
+                    <br>
+
+                    <span class="font-bold col-blue-grey ">  Experience :  </span>{{resume.total_experience?resume.total_experience+ ' years':'Non available'}}
+                    <br>
+                    <br>
+
+                    <span class="font-bold col-blue-grey ">  Stability :  </span>{{resume.stability?resume.stability + ' years':'Non available'}}
 
 
                     <br>

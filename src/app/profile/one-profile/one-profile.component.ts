@@ -36,7 +36,7 @@ export class OneProfileComponent implements OnInit {
     this.crudService.getOne(BASE_API + USERS, id).subscribe(
     (data: ResumeModel) => {
       this.resume = data;
-      console.log(this.resume)
+      console.log(this.resume);
 
     }, () => {
 

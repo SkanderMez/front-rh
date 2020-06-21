@@ -33,8 +33,8 @@
                       <h5>All Profiles</h5>
                     </div>
 
-                    <div *ngIf="recommendedUsersProfiles?.length !== 0 && completeSearch">
-                      <div  *ngFor="let user of recommendedUsersProfiles; let i = index" class="ibox-content one-resume">
+                    <div *ngIf="recommendedUsers?.length !== 0 && completeSearch">
+                      <div  *ngFor="let user of recommendedUsers; let i = index" class="ibox-content one-resume">
                         <div class="table-responsive">
                           <table class="table shoping-cart-table ">
                             <tbody>
@@ -54,33 +54,33 @@
                                     {{user.personal_info.name}}
                                   </a>
                                 </h3>
-<!--                                <div class="small">-->
-<!--                                  <strong>Profile:</strong>-->
-<!--                                  <p>-->
-<!--                                <span *ngIf="recommendedUsersLabeledProfiles.labeled_users[i].labels.backend === 1"-->
-<!--                                      class="label bg-red m-b-10">Backend</span>-->
-<!--                                    <span *ngIf="recommendedUsersLabeledProfiles.labeled_users[i].labels.frontend === 1"-->
-<!--                                          class="label bg-cyan m-b-10">Frontend</span>-->
-<!--                                    <span *ngIf="recommendedUsersLabeledProfiles.labeled_users[i].labels.phpsymfony === 1"-->
-<!--                                          class="label bg-light-green m-b-10">PHP/Symfony</span>-->
-<!--                                    <span *ngIf="recommendedUsersLabeledProfiles.labeled_users[i].labels.ArchitecteJee === 1"-->
-<!--                                          class="label bg-amber m-b-10">ArchitecteJEE</span>-->
-<!--                                    <span *ngIf="recommendedUsersLabeledProfiles.labeled_users[i].labels.Embedded === 1"-->
-<!--                                          class="label bg-blue-grey m-b-10">Embarqué</span>-->
-<!--                                    <span *ngIf="recommendedUsersLabeledProfiles.labeled_users[i].labels.fullstackjs === 1"-->
-<!--                                          class="label bg-pink m-b-10">FullstackJS</span>-->
-<!--                                    <span *ngIf="recommendedUsersLabeledProfiles.labeled_users[i].labels.DRUPAL === 1"-->
-<!--                                          class="label bg-deep-purple m-b-10">Drupal</span>-->
-<!--                                    <span *ngIf="recommendedUsersLabeledProfiles.labeled_users[i].labels.PO === 1"-->
-<!--                                          class="label bg-yellow m-b-10">PO</span>-->
-<!--                                    <span *ngIf="recommendedUsersLabeledProfiles.labeled_users[i].labels.java/jee === 1"-->
-<!--                                          class="label bg-deep-orange m-b-10">Java/JEE</span>-->
-<!--                                    <span *ngIf="recommendedUsersLabeledProfiles.labeled_users[i].labels.PO ===0 && recommendedUsersLabeledProfiles.labeled_users[i].labels.ArchitecteJee === 0 &&-->
-<!--                                      recommendedUsersLabeledProfiles.labeled_users[i].labels.DRUPAL ===0 && recommendedUsersLabeledProfiles.labeled_users[i].labels.fullstackjs ===0 && recommendedUsersLabeledProfiles.labeled_users[i].labels.Embedded ===0&&-->
-<!--                                      recommendedUsersLabeledProfiles.labeled_users[i].labels.phpsymfony ===0 && recommendedUsersLabeledProfiles.labeled_users[i].labels.frontend ===0 && recommendedUsersLabeledProfiles.labeled_users[i].labels.backend ===0 "-->
-<!--                                          class="label bg-grey m-b-10">No Skill</span>-->
-<!--                                  </p>-->
-<!--                                </div>-->
+                                <div class="small">
+                                  <strong>Profile:</strong>
+                                  <p>
+                                <span *ngIf="user.labels.backend === 1"
+                                      class="label bg-red m-b-10">Backend</span>
+                                    <span *ngIf="user.labels.frontend === 1"
+                                          class="label bg-cyan m-b-10">Frontend</span>
+                                    <span *ngIf="user.labels.phpsymfony === 1"
+                                          class="label bg-light-green m-b-10">PHP/Symfony</span>
+                                    <span *ngIf="user.labels.architectejee === 1"
+                                          class="label bg-amber m-b-10">ArchitecteJEE</span>
+                                    <span *ngIf="user.labels.embedded === 1"
+                                          class="label bg-blue-grey m-b-10">Embarqué</span>
+                                    <span *ngIf="user.labels.fullstackjs === 1"
+                                          class="label bg-pink m-b-10">FullstackJS</span>
+                                    <span *ngIf="user.labels.drupal === 1"
+                                          class="label bg-deep-purple m-b-10">Drupal</span>
+                                    <span *ngIf="user.labels.po === 1"
+                                          class="label bg-yellow m-b-10">PO</span>
+                                    <span *ngIf="user.labels.java_jee === 1"
+                                          class="label bg-deep-orange m-b-10">Java/JEE</span>
+                                    <span *ngIf="user.labels.po ===0 && user.labels.architectejee === 0 &&
+                                      user.labels.drupal ===0 && user.labels.fullstackjs ===0 && user.labels.embedded ===0&&
+                                      user.labels.phpsymfony ===0 && user.labels.frontend ===0 && user.labels.backend ===0 "
+                                          class="label bg-grey m-b-10">No Skill</span>
+                                  </p>
+                                </div>
                                 <div class="small">
                                   <strong>location:</strong>
                                   <p>{{user.personal_info.location ? user.personal_info.location : "Non available"}}</p>
@@ -94,6 +94,17 @@
                                   <p>{{user.personal_info.phone ? user.personal_info.phone : "Non available"}}</p>
                                 </div>
                               </td>
+                              <td class="desc" style="width: 70%">
+                                <div class="small m-b-none">
+                                  <strong>Experience:</strong>
+                                  <p>{{user.total_experience ? user.total_experience + ' years' : "Non available"}} </p>
+                                </div>
+                                <div class="small m-b-none">
+                                  <strong>Stability:</strong>
+                                  <p>{{user.stability ? user.stability + ' years': "Non available"}}</p>
+                                </div>
+                              </td>
+
                               <td style="width: 10%">
                                 <button (click)="checkFullResume(user.id)" class="btn-hover btn-border-radius color-10"
                                         style="    background-image: linear-gradient(to right,#26a69a,#26a69a,#343d45,#343d45);">
@@ -101,7 +112,8 @@
                                 </button>
                               </td>
                               <td style="width: 10%">
-                                <button class="btn-hover btn-border-radius color-10"
+                                <button (click)="checkRecommendedProfiles(user.id)"
+                                        class="btn-hover btn-border-radius color-10"
                                         style="    background-image: linear-gradient(to right,#26a69a,#26a69a,#343d45,#343d45);">
                                   Get Similar profiles
                                 </button>
@@ -114,7 +126,7 @@
                       </div>
                     </div>
 
-                    <div *ngIf="recommendedUsersProfiles.length === 0 && completeSearch" style="text-align: center">
+                    <div *ngIf="recommendedUsers?.length === 0 && completeSearch" style="text-align: center">
                       <img  src="../../assets/images/no-result-found.png"/>
                     </div>
                     <div class="ibox-content">

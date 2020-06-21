@@ -5,6 +5,8 @@ import {ResumeModel} from '../../_models/full-resume-models/resume.model';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {LabeledUserModel} from '../../_models/full-resume-models/labeled.user.model';
+import {UserInfoModel} from '../../_models/full-resume-models/user.info.model';
+import {SearchResultModel} from '../../_models/full-resume-models/search.result.model';
 declare var $: any;
 @Component({
   selector: 'app-all-profiles',
@@ -15,15 +17,12 @@ export class AllProfilesComponent implements OnInit {
 
 
   @ViewChild('experience', { static: false }) public experience: ElementRef;
-  @ViewChild('stability', { static: false }) public stability: ElementRef;
 
   url1 = 'assets/js/pages/ui/range-sliders.js';
   url2 = 'assets/js/pages/forms/form-data.js';
   url3 = 'assets/js/bundles/multiselect/js/jquery.multi-select.js';
   loading;
-  users_ids = [];
-  labeled_users: LabeledUserModel;
-  users: ResumeModel[];
+  searchResult: SearchResultModel;
   actualOffset = 0;
   limit = 5;
   searchForm: FormGroup;
@@ -63,12 +62,6 @@ export class AllProfilesComponent implements OnInit {
         min_experience: ['', Validators.compose([
           Validators.required
         ])],
-        min_stability: ['', Validators.compose([
-          Validators.required
-        ])],
-        max_stability: ['', Validators.compose([
-          Validators.required
-        ])],
         max_experience: ['', Validators.compose([
           Validators.required
         ])]
@@ -79,35 +72,16 @@ export class AllProfilesComponent implements OnInit {
   getAllUsersPaginateWithoutFilters(offset, limit) {
     this.actualOffset = 0;
     this.loading = true;
-    this.users = [];
-    this.users_ids = [];
     this.crudService.getAllPaginate(BASE_API + USERS , offset , limit ).subscribe(
-      (data: LabeledUserModel) => {
+      (data: SearchResultModel) => {
         console.log('labled db result');
-        console.log(data)
-        this.labeled_users = data;
-        data.labeled_users.forEach((labeled_user) => {
-          this.users_ids.push(labeled_user.id);
-        });
+        console.log(data);
+        this.searchResult = data;
       }, (error) => {
         this.loading = false;
-        console.log('error on getting all users paginate');
+        console.log('error on getting all users paginate without filters');
         console.log(error);
       }, () => {
-        this.users = [];
-        this.users_ids.forEach((id) => {
-            this.crudService.getOne(BASE_API + USERS , id).subscribe(
-              (data: ResumeModel) => {
-                  this.users.push(data);
-                  console.log(data);
-              }, (error) => {
-                this.loading = false;
-                console.log('error on getting one full user by its id');
-                console.log(error);
-              }, () => {
-              }
-            );
-        });
         this.loading = false;
       }
     );
@@ -160,49 +134,27 @@ export class AllProfilesComponent implements OnInit {
   onSubmitSearch() {
     this.loading = true;
     this.filteringQuery = true;
-    this.users = [];
-    this.users_ids = [];
     const min_experience = this.experience.nativeElement.firstElementChild.children[0].firstElementChild.children[1].firstElementChild.innerHTML;
     const max_experiencee = this.experience.nativeElement.firstElementChild.children[2].firstElementChild.children[1].firstElementChild.innerHTML;
-    const min_stability = this.stability.nativeElement.firstElementChild.children[2].firstElementChild.children[1].firstElementChild.innerHTML;
-    const max_stability = this.stability.nativeElement.firstElementChild.children[2].firstElementChild.children[1].firstElementChild.innerHTML;
     this.crudService.postPaginate(BASE_API + USERS , this.actualOffset , this.limit , { school : this.f.school.value,
     location : this.f.location.value, profile: this.f.profile.value, min_experience: min_experience ,
-      max_experience: max_experiencee , min_stability: 1, max_stability: 3 }).subscribe(
-      (data: any) => {
-        console.log('search result');
+      max_experience: max_experiencee }).subscribe(
+      (data: SearchResultModel) => {
+        console.log('labled db result');
         console.log(data);
-        this.labeled_users = data;
-        data.labeled_users.forEach((labeled_user) => {
-          this.users_ids.push(labeled_user.id);
-        });
-      },
-      (error) => {
+        this.searchResult = data;
+      }, (error) => {
         this.loading = false;
+        console.log('error on getting all users paginate without filters');
         console.log(error);
-      },
-      () => {
+      }, () => {
         this.loading = false;
-        this.users = [];
-        this.users_ids.forEach((id) => {
-          this.crudService.getOne(BASE_API + USERS , id).subscribe(
-            (data: ResumeModel) => {
-              this.users.push(data);
-              console.log(data);
-            }, (error) => {
-              this.loading = false;
-              console.log('error on getting one full user by its id');
-              console.log(error);
-            }, () => {
-              this.loading = false;
-            }
-          );
-        });
       }
+
     );
   }
 
-  checkRecommendedProfiles(userId: number) {
+  checkRecommendedProfiles(userId: string) {
     this.router.navigate(['/recommended', userId]);
   }
 }
